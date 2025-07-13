@@ -24,7 +24,6 @@ jobs:
           lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" <<EOF
           set ssl:verify-certificate no
           set ftp:list-options -a
-          open "${{ secrets.FTP_HOST }}"
           cd "${{ secrets.FTP_TARGET_DIR_DEV_PREVIEW }}"
           rm -r "${{ steps.sanitize.outputs.safe_name }}"
           bye
