@@ -6,10 +6,12 @@ on:
       - main
     types: [opened, synchronize, reopened]
 
+permissions:
+  pull-requests: write
+
 jobs:
   preview-deploy:
     runs-on: ubuntu-latest
-    pull-requests: write
 
     steps:
       - name: ⬇️ Checkout PR branch
