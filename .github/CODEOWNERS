@@ -4,7 +4,7 @@
 
 # Granular ownership for monorepo structure
 
-/apps/web/ @yogeshkumarasamy
-/packages/ @yogeshkumarasamy
+/apps/web/ @yogeshkumarasamy @yogesh-kumarasamy
+/packages/ @yogeshkumarasamy @yogesh-kumarasamy
 
-- @yogeshkumarasamy
+- @yogeshkumarasamy @yogesh-kumarasamy
