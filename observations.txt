@@ -1,0 +1,4 @@
+new version of eslint - 9.30.1
+new version of prettier - 3.6.2
+new version of ts - 5.8.3
+turborepo - 2.5.4
