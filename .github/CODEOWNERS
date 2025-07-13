@@ -1,0 +1,10 @@
+# This file defines code owners for the repository
+
+# Format: path @github-username
+
+# Granular ownership for monorepo structure
+
+/apps/web/ @yogeshkumarasamy
+/packages/ @yogeshkumarasamy
+
+- @yogeshkumarasamy
