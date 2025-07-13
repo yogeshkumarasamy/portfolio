@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: 🛠️ Build Vite app
-        run: pnpm --filter apps/web... build
+        run: pnpm --filter @apps/web... build
 
       - name: 📤 Upload preview to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
