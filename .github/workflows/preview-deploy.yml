@@ -1,0 +1,47 @@
+name: Preview Deploy for PRs to Main
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout PR branch
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ secrets.NODE_VERSION || '18' }}
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🛠️ Build Vite app
+        run: pnpm --filter apps/web... build
+
+      - name: 📤 Upload preview to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: apps/web/dist
+          server-dir: ${{ secrets.FTP_TARGET_DIR_DEV_PREVIEW }}/${{ github.sha }}
+
+      - name: 💬 Comment preview URL on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            🚀 Preview ready:  
+            [https://dev.yourdomain.com/preview/${{ github.sha }}/](https://dev.yourdomain.com/preview/${{ github.sha }}/)
