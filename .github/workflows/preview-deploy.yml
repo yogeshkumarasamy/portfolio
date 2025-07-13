@@ -17,6 +17,10 @@ jobs:
       BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
 
     steps:
+      - name: ⛔ Skip if PR is closed or merged
+        if: ${{ github.event.pull_request.merged == true || github.event.pull_request.state == 'closed' }}
+        run: echo "PR is merged or closed. Skipping preview deploy." && exit 0
+
       - name: ⬇️ Checkout PR branch
         uses: actions/checkout@v4
 
