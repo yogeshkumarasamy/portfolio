@@ -9,6 +9,7 @@ on:
 jobs:
   preview-deploy:
     runs-on: ubuntu-latest
+    pull-requests: write
 
     steps:
       - name: ⬇️ Checkout PR branch
@@ -44,4 +45,4 @@ jobs:
         with:
           message: |
             🚀 Preview ready:  
-            [https://dev.yourdomain.com/preview/${{ github.sha }}/](https://dev.yourdomain.com/preview/${{ github.sha }}/)
+            [${{ secrets.PREVIEW_DOMAIN }}/${{ github.sha }}/](${{ secrets.PREVIEW_DOMAIN }}/${{ github.sha }}/)
