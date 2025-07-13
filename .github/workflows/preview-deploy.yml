@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: apps/web/dist/
-          server-dir: ${{ secrets.FTP_TARGET_DIR_DEV_PREVIEW }}/${{ github.sha }}
+          server-dir: ${{ secrets.FTP_TARGET_DIR_DEV_PREVIEW }}/${{ github.sha }}/
 
       - name: 💬 Comment preview URL on PR
         uses: marocchino/sticky-pull-request-comment@v2
