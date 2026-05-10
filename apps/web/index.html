@@ -9,5 +9,25 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function (a, b, c, d, e, f, g) {
+        c[d] =
+          c[d] ||
+          function () {
+            (c[d].q = c[d].q || []).push(arguments);
+          };
+        c["_lsAlias"] = c[d];
+        e = a.createElement(b);
+        e.type = "text/javascript";
+        e.async = true;
+        e.src = "https://app.chatsupport.co/api/client/get/script/LS-570d5d3d";
+        f = function () {
+          g = a.getElementsByTagName(b)[0];
+          g.parentNode.insertBefore(e, g);
+        };
+        c.addEventListener("load", f);
+      })(document, "script", window, "_ls");
+      _ls("init", { projectId: "LS-570d5d3d" });
+    </script>
   </body>
 </html>
